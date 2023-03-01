@@ -23,5 +23,4 @@ Rename-Computer -NewName $hostname
 Start-Process Powershell -LoadUserProfile -Credential $Cred -wait -ArgumentList'-Command',"ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$hostname-jump-keys -C $hostname"
 
 # log off
-Write-Host "Logging off"
-logoff.exe
+Write-Host "When ready, reboot!"
