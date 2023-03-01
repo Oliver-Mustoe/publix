@@ -24,7 +24,7 @@ $commands = @'
     $env:username
     ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\.ssh\jump-keys -C jump-key
 '@
-Start-Process Powershell -LoadUserProfile -Credential $Cred -wait -ArgumentList'-Command',"ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$hostname-jump-keys -C $hostname"
+Start-Process Powershell -LoadUserProfile -Credential $Cred -wait -ArgumentList'-Command',$commands
 
 # log off
 Write-Host "When ready, reboot!"
