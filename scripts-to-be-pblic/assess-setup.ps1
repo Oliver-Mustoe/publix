@@ -21,6 +21,6 @@ Rename-Computer -NewName $hostname
 
 #Start-Process Powershell "-Command Read-host((whoami))" -LoadUserProfile -NoNewWindow -Credential $Cred -wait
 Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\$Username-jump-keys -C $Username" -LoadUserProfile -Credential $Cred -wait -NoNewWindow
-# Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$Username-jump-keys -C $Username" -LoadUserProfile -Credential $Cred -wait -NoNewWindow
+# Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$Username-jump-keys -C $Username" -Credential $Cred -wait
 # log off
 Write-Host "When ready, reboot!"
