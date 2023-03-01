@@ -20,6 +20,6 @@ $cred = New-Object System.Management.Automation.PSCredential $username, $Passwor
 Rename-Computer -NewName $hostname
 
 #Start-Process Powershell "-Command Read-host((whoami))" -LoadUserProfile -NoNewWindow -Credential $Cred -wait
-Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\$env:username-jump-keys -C $env:username" -LoadUserProfile -NoNewWindow -Credential $Cred -wait
+Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\$env:username-jump-keys -C $env:username && Read-Host" -LoadUserProfile -NoNewWindow -Credential $Cred -wait
 # log off
 Write-Host "When ready, reboot!"
