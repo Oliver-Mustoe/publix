@@ -20,7 +20,12 @@ $cred = New-Object System.Management.Automation.PSCredential $username, $Passwor
 Rename-Computer -NewName $hostname
 
 # Add ssh-keys
-Start-Process Powershell "ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$hostname-jump-keys -C $hostname" -Credential $Cred -NoNewWindow -wait
+#Start-Process Powershell "ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$hostname-jump-keys -C $hostname" -Credential $Cred -NoNewWindow -wait
+
+Invoke-Command -ComputerName localhost -Credential $cred -ScriptBlock {
+    ssh-keygen -t rsa -b 4096 -f C:\Users\$Username\.ssh\$hostname-jump-keys -C $hostname
+}
+
 
 # log off
 Write-Host "Logging off"
