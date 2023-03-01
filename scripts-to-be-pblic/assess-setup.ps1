@@ -25,6 +25,7 @@ Rename-Computer -NewName $hostname
 #    ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\.ssh\jump-keys -C jump-key
 #'@
 # Start-Process Powershell -LoadUserProfile -Credential $Cred -wait -ArgumentList '-Command',"ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\.ssh\$Username-jump-keys -C $env:username"
-Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\.ssh\$Username-jump-keys -C $env:username" -LoadUserProfile -Credential $Cred -wait
+Start-Process Powershell "whoami" -LoadUserProfile -NoNewWindow .\assessment_guide.md-Credential $Cred -wait
+Start-Process Powershell "-Command ssh-keygen -t rsa -b 4096 -f C:\Users\$env:username\.ssh\$Username-jump-keys -C $env:username" -LoadUserProfile -NoNewWindow -Credential $Cred -wait
 # log off
 Write-Host "When ready, reboot!"
