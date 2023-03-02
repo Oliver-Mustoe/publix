@@ -12,9 +12,9 @@ Set-Service -Name sshd -StartupType Automatic
 $Username = Read-Host -prompt "What is the named administrative user you want to create?"
 $Password = Read-Host -prompt "What is the password for this user?" -AsSecureString
 $hostname = Read-Host -prompt "What is the hostname of this box supposed to be?"
-$cred = New-LocalUser $Username -Password $Password -AccountNeverExpires -PasswordNeverExpires:$true
+New-LocalUser $Username -Password $Password -AccountNeverExpires -PasswordNeverExpires:$true
 Add-LocalGroupMember -Group "Administrators" -Member $cred
-# $cred = New-Object System.Management.Automation.PSCredential $username, $Password
+$cred = New-Object System.Management.Automation.PSCredential $Username, $Password
 
 # Rename computer
 Rename-Computer -NewName $hostname
